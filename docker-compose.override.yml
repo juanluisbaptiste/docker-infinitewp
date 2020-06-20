@@ -1,0 +1,26 @@
+version: "3.3"
+services:
+    wordpress:
+        image: juanluisbaptiste/infinitewp:dev
+        build: .
+
+    adminer:
+        image: adminer:4.6.3-standalone
+        read_only: true
+        volumes:
+          - /tmp
+        ports:
+          - "8080:8080"
+        #networks:
+        #  - internal
+        #  - proxy
+        depends_on:
+          - mysql
+        links:
+          - mysql
+
+          #networks:
+          #  proxy:
+          #    external: true
+          #  internal:
+          #    external: false

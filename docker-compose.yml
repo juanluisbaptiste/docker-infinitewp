@@ -1,0 +1,33 @@
+version: "3.3"
+services:
+    wordpress:
+        image: juanluisbaptiste/infinitewp
+        hostname: infinitewp
+        container_name: infinitewp
+        cap_drop:
+            - NET_ADMIN
+            - SYS_ADMIN
+        tmpfs:
+            - /run
+            - /tmp
+        depends_on:
+            - mysql
+        restart: always
+        volumes:
+          - ./volumes/infinitewp:/var/www/html
+        ports:
+          - "80:80"
+       # networks:
+       #  - internal
+       #   - proxy
+
+    mysql:
+        image: mariadb:10.1
+        hostname: database
+        container_name: database
+        env_file: .env
+        volumes:
+          - ./volumes/mysql:/var/lib/mysql
+        restart: always
+        #networks:
+        #  - internal

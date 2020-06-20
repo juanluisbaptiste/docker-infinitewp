@@ -1,0 +1,33 @@
+<?php
+#Show Error
+define('APP_SHOW_ERROR', true);
+
+@ini_set('display_errors', (APP_SHOW_ERROR) ? 'On' : 'Off');
+error_reporting(E_ALL & ~E_NOTICE & ~E_STRICT);
+if(defined('E_DEPRECATED')) {
+error_reporting(error_reporting() & ~E_DEPRECATED);
+}
+define('SHOW_SQL_ERROR', APP_SHOW_ERROR);
+
+define('APP_VERSION', '2.15.5.3');
+define('APP_INSTALL_HASH', 'de38ccfe9713c6786e7283a6c9498afc1fea785c');
+
+define('APP_ROOT', dirname(__FILE__));
+define('APP_DOMAIN_PATH', 'localhost/');
+
+define('APP_ROOT_V3', dirname(__FILE__).'/v3');
+define('APP_DOMAIN_PATH_V3', 'localhost/v3');
+
+define('EXECUTE_FILE', 'execute.php');
+define('DEFAULT_MAX_CLIENT_REQUEST_TIMEOUT', 180);//Request to client wp
+
+$config = array();
+$config['SQL_DATABASE'] = 'infinitewp';
+$config['SQL_HOST'] = 'mysql';
+$config['SQL_USERNAME'] = 'infinitewp';
+$config['SQL_PASSWORD'] = '';
+$config['SQL_PORT'] = '3306';
+$config['SQL_TABLE_NAME_PREFIX'] = 'iwp_';
+root@infinitewp:/var/www/html# exit
+exit
+# exit
